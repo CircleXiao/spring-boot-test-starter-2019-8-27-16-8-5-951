@@ -60,7 +60,7 @@ public class SampleWebAppApplicationTests {
 	
 	@Test
     public void shouldReturnpostUserName() throws Exception {
-		HashMap map = new HashMap();
+		HashMap<String, String> map = new HashMap<String, String>();
 		String postString = objectMapper.writeValueAsString(map);
 		
         this.mockMvc.perform(
@@ -74,10 +74,4 @@ public class SampleWebAppApplicationTests {
         	.andExpect(status().isCreated())
         	.andExpect(MockMvcResultMatchers.jsonPath("$.id", CoreMatchers.is("100")));
     }
-	
-//	@Test
-//	public void contextLoads() {
-//
-//	}
-
 }
