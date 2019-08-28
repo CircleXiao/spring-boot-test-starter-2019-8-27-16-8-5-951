@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -26,6 +27,13 @@ public class HomeController {
 		HashMap<String, String> userInfo = new HashMap<String, String>();
 		userInfo.put("username", "ÕÅÈý");
 		return userInfo;
+	}
+	
+	@RequestMapping("/user")
+	@ResponseStatus(HttpStatus.CREATED)
+	public @ResponseBody HashMap<String, String> responseUserId(@RequestBody HashMap<String, String> map) {
+		map.put("id", "100");
+		return map;
 	}
 
 }
