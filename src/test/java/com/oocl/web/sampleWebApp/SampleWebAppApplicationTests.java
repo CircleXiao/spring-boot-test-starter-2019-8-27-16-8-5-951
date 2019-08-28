@@ -29,6 +29,14 @@ public class SampleWebAppApplicationTests {
         .andExpect(content().string(containsString("Hello World")));
     }
 	
+	@Test
+    public void shouldReturnBadRequest() throws Exception {
+        this.mockMvc.perform(get("/hello"))
+        .andDo(print())
+        .andExpect(status().isBadRequest())
+        .andExpect(content().string(containsString("Hello World")));
+    }
+	
 //	@Test
 //	public void contextLoads() {
 //
