@@ -1,5 +1,7 @@
 package com.oocl.web.sampleWebApp;
 
+import java.util.HashMap;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,13 @@ public class HomeController {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public @ResponseBody String hello() {
 		return "Hello World";
+	}
+	
+	@RequestMapping("/users")
+	public @ResponseBody HashMap<String, String> getUserName() {
+		HashMap<String, String> userInfo = new HashMap<String, String>();
+		userInfo.put("username", "уехЩ");
+		return userInfo;
 	}
 
 }
